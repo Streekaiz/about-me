@@ -110,22 +110,23 @@
             box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.3);
         }
 
-        .discord-section, .forums-section {
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         padding: 16px;
-         text-align: center;
-         background-color: rgba(0, 0, 0, 0.144);
-         border-radius: 0.75rem;
-         box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.4), 0 8px 10px -4px rgba(0, 0, 0, 0.3);
-         margin-right: 0;
-         width: 250px;
-         margin-top: 20px;
-         position: relative;
-         margin-left: 0;
-         backdrop-filter: blur(10px);
-         border: 1px solid rgba(255, 255, 255, 0.1);
+        .discord-section,
+        .forums-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.144);
+            border-radius: 0.75rem;
+            box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.4), 0 8px 10px -4px rgba(0, 0, 0, 0.3);
+            margin-right: 0;
+            width: 250px;
+            margin-top: 20px;
+            position: relative;
+            margin-left: 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .forums-section {
@@ -163,7 +164,7 @@
             box-sizing: border-box;
             max-width: 100%;
             gap: 40px;
-         }
+        }
 
         #audio-visualizer {
             width: 100%;
@@ -573,7 +574,7 @@
                     starryyzz
                 </h1>
                 <p class="text-white-600 mb-2">
-                     @streekaizu
+                    @streekaizu
                 </p>
                 <p class="text-white text-sm" style="margin-bottom: 0.5rem;">i go by kaizu or starryyzz!</p>
                 <p class="text-white text-sm">
@@ -584,17 +585,24 @@
                     <i class="fas fa-clock" style="font-size: 0.75rem;"></i>
                     <span style="margin-left: 4px;">Pacific Time Zone : <span id="pacific-time">00:00</span></span>
                 </p>
-                <p class="text-white text-sm" style="margin-bottom: 0.5rem;">
+                <p class="text-white text-sm" style="margin-bottom: -0.2rem;">
                     <i class="fas fa-birthday-cake" style="font-size: 0.75rem;"></i>
                     <span style="margin-left: 4px;">9/27</span>
                 </p>
+                <button onclick="window.location.href='https://streekaiz.github.io/User-Interfaces/index.html'"
+                    class="text-white text-sm bg-transparent border-0 p-0 transition" style="margin-top: 0; cursor: pointer;"
+                    onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#ffffff'">
+                    <i class="fas fa-paint-brush" style="font-size: 0.7rem; margin-right: 4px;"></i>
+                    Designs
+                </button>
             </div>
         </div>
         <div class="forums-section">
             <h3>Socials</h3>
             <ul>
                 <li>
-                    <img class="x64-logo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                    <img class="x64-logo"
+                        src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                         alt="GitHub Logo">
                     <a href="https://github.com/Streekaiz">Github</a>
                 </li>
@@ -611,15 +619,14 @@
                     <a href="https://bsky.app/profile/starryyzz.bsky.social">Bluesky</a>
                 </li>
                 <li>
-                    <img class="x64-logo" src="https://img.icons8.com/?size=100&id=30998&format=png&color=000000" alt="Discord Logo">
+                    <img class="x64-logo" src="https://img.icons8.com/?size=100&id=30998&format=png&color=000000"
+                        alt="Discord Logo">
                     <a href="https://discordapp.com/users/870622207531946025">Discord</a>
                 </li>
                 <li>
-                    <img class="x64-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Roblox_Logo.svg" alt="Roblox Logo">
+                    <img class="x64-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Roblox_Logo.svg"
+                        alt="Roblox Logo">
                     <a href="https://www.roblox.com/users/4012807793">Roblox</a>
-                </li>
-                <li>
-                    <a href="https://streekaiz.github.io/User-Interfaces/index.html">Designs</a>
                 </li>
             </ul>
         </div>
@@ -757,26 +764,26 @@
         document.querySelectorAll('img').forEach(img => {
             img.setAttribute('draggable', 'false');
         });
-        
+
         function updatePacificTime() {
-                // Get current time in Pacific Time (handles DST automatically)
-                const now = new Date();
-                const options = {
-                    timeZone: "America/Los_Angeles",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    hour12: true,
-                };
+            // Get current time in Pacific Time (handles DST automatically)
+            const now = new Date();
+            const options = {
+                timeZone: "America/Los_Angeles",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+            };
 
-                const pacificTime = new Intl.DateTimeFormat("en-US", options).format(now);
-                document.getElementById("pacific-time").textContent = pacificTime;
-            }
+            const pacificTime = new Intl.DateTimeFormat("en-US", options).format(now);
+            document.getElementById("pacific-time").textContent = pacificTime;
+        }
 
-            // Run immediately once
-            updatePacificTime();
+        // Run immediately once
+        updatePacificTime();
 
-            // Then update every 30 seconds (you can change this to 60000 for every minute)
-            setInterval(updatePacificTime, 30000);
+        // Then update every 30 seconds (you can change this to 60000 for every minute)
+        setInterval(updatePacificTime, 30000);
 
         function createSparkle(container) {
             const sparkle = document.createElement('div');
